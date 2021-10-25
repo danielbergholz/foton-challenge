@@ -1,9 +1,7 @@
+import { Text } from '@chakra-ui/react'
+
 const Home = () => {
-  return (
-    <div>
-      <h1>Tela 1</h1>
-    </div>
-  )
+  return <Text>Oi</Text>
 }
 
 export default Home
