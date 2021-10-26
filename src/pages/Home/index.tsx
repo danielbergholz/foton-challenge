@@ -1,7 +1,11 @@
-import { Text } from '@chakra-ui/react'
+import Search from '../../components/Search'
 
 const Home = () => {
-  return <Text>Oi</Text>
+  return (
+    <>
+      <Search />
+    </>
+  )
 }
 
 export default Home
