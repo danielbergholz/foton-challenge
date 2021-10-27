@@ -16,12 +16,7 @@ const Book: ChakraComponent<'div', IProps> = ({
   index,
   ...rest
 }) => {
-  const {
-    title,
-    authors,
-    imageLinks: { thumbnail, smallThumbnail },
-    pageCount,
-  } = volumeInfo
+  const { title, authors, pageCount, imageLinks } = volumeInfo
 
   return (
     <Box
@@ -72,20 +67,26 @@ const Book: ChakraComponent<'div', IProps> = ({
           <Flex alignItems="center">
             <Image src={Stats} mr="2px" />
             <Text color="#E7E7E1" fontSize="10px" lineHeight="11px">
-              <Text as="span" color="#E7E7E1" fontWeight="700">
-                {pageCount}+
-              </Text>{' '}
+              {pageCount && (
+                <Text as="span" color="#E7E7E1" fontWeight="700">
+                  {pageCount}+
+                </Text>
+              )}{' '}
               Read Now
             </Text>
           </Flex>
         </Flex>
-        <Image
-          src={thumbnail || smallThumbnail}
-          borderRadius="4px"
-          width="72px"
-          height="111px"
-          objectFit="cover"
-        />
+        {imageLinks?.thumbnail || imageLinks?.smallThumbnail ? (
+          <Image
+            src={imageLinks?.thumbnail || imageLinks?.smallThumbnail}
+            borderRadius="4px"
+            width="72px"
+            height="111px"
+            objectFit="cover"
+          />
+        ) : (
+          <Box height="111px" />
+        )}
       </Flex>
     </Box>
   )

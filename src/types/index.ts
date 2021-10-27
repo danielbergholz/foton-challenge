@@ -7,8 +7,8 @@ export interface IVolume {
   title: string
   authors?: string[]
   description: string
-  imageLinks: IThumbnails
-  pageCount: number
+  imageLinks?: IThumbnails
+  pageCount?: number
 }
 
 export interface IItem {
