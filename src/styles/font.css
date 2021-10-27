@@ -1,16 +1,26 @@
 @font-face {
+  font-style: italic;
+  font-family: 'SF Pro Display';
+  font-weight: 400;
+  src: url('../fonts/SFPRODISPLAYLIGHTITALIC.OTF') format('opentype');
+}
+
+@font-face {
+  font-style: normal;
   font-family: 'SF Pro Display';
   font-weight: 400;
   src: url('../fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
 }
 
 @font-face {
+  font-style: normal;
   font-family: 'SF Pro Display';
   font-weight: 500;
   src: url('../fonts/SFPRODISPLAYMEDIUM.OTF') format('opentype');
 }
 
 @font-face {
+  font-style: normal;
   font-family: 'SF Pro Display';
   font-weight: 700;
   src: url('../fonts/SFPRODISPLAYBOLD.OTF') format('opentype');
