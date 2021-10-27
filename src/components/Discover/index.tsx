@@ -1,4 +1,5 @@
 import { Flex, Skeleton } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 import useSWR from 'swr'
 
 import fetcher from '../../services/fetcher'
@@ -10,14 +11,14 @@ interface IResponse {
 }
 
 const Discover = () => {
-  const { data, isValidating } = useSWR(
+  const { data } = useSWR(
     '/volumes?q=machine+learning',
     (url: string) => fetcher<IResponse>(url),
     { revalidateOnFocus: false }
   )
 
   return (
-    <Skeleton isLoaded={!isValidating}>
+    <Skeleton isLoaded={!!data}>
       <Flex
         overflowX="auto"
         overflowY="hidden"
@@ -35,13 +36,14 @@ const Discover = () => {
         }}
       >
         {data?.items.map((item, index, self) => (
-          <Book
-            key={item.id}
-            ml={index === 0 ? '20px' : '0'}
-            mr={index === self.length - 1 ? '20px' : '0'}
-            index={index}
-            volumeInfo={item.volumeInfo}
-          />
+          <Link key={item.id} to={`/book/${item.id}`}>
+            <Book
+              ml={index === 0 ? '20px' : '0'}
+              mr={index === self.length - 1 ? '20px' : '0'}
+              index={index}
+              volumeInfo={item.volumeInfo}
+            />
+          </Link>
         ))}
       </Flex>
     </Skeleton>

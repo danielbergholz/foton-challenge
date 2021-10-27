@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom'
-import { AspectRatio, Box, Flex, Text } from '@chakra-ui/react'
+import { AspectRatio, Box, Flex, Skeleton, Text } from '@chakra-ui/react'
 import Discover from '../../components/Discover'
 import Search from '../../components/Search'
 import Reading from '../../components/Reading'
 import NavBar from '../../components/NavBar'
+import { useState } from 'react'
 
 const Home = () => {
+  const [videosLoaded, setVideosLoaded] = useState(false)
+
   return (
     <>
       <Box marginX="20px">
@@ -78,23 +81,25 @@ const Home = () => {
         </Flex>
 
         {videos.map((video) => (
-          <AspectRatio
-            key={video}
-            width="100%"
-            ratio={16 / 9}
-            border="1px solid #FEFAF6"
-            borderRadius="10px"
-            overflow="hidden"
-            mb="10px"
-          >
-            <iframe
-              src={video}
-              title="Book review"
-              frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
-            />
-          </AspectRatio>
+          <Skeleton isLoaded={videosLoaded} key={video}>
+            <AspectRatio
+              width="100%"
+              ratio={16 / 9}
+              border="1px solid #FEFAF6"
+              borderRadius="10px"
+              overflow="hidden"
+              mb="10px"
+            >
+              <iframe
+                src={video}
+                title="Book review"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                onLoad={() => setVideosLoaded(true)}
+              />
+            </AspectRatio>
+          </Skeleton>
         ))}
       </Box>
 
