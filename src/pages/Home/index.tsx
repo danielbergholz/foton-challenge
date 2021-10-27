@@ -3,6 +3,7 @@ import { AspectRatio, Box, Flex, Text } from '@chakra-ui/react'
 import Discover from '../../components/Discover'
 import Search from '../../components/Search'
 import Reading from '../../components/Reading'
+import NavBar from '../../components/NavBar'
 
 const Home = () => {
   return (
@@ -55,7 +56,7 @@ const Home = () => {
 
       <Reading />
 
-      <Box marginX="20px" mb="25px" mt="10px">
+      <Box marginX="20px" mb="100px" mt="10px">
         <Flex justifyContent="space-between" alignItems="center" mb="15px">
           <Text
             lineHeight="21px"
@@ -96,6 +97,8 @@ const Home = () => {
           </AspectRatio>
         ))}
       </Box>
+
+      <NavBar />
     </>
   )
 }
