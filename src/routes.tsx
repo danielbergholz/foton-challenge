@@ -1,12 +1,16 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { ChakraProvider } from '@chakra-ui/react'
+import { Box, ChakraProvider } from '@chakra-ui/react'
 
 import './styles/font.css'
 import Home from './pages/Home'
 import { theme } from './styles/theme'
 
 const Root: React.FC = ({ children }) => (
-  <ChakraProvider theme={theme}>{children}</ChakraProvider>
+  <ChakraProvider theme={theme}>
+    <Box maxWidth="480px" margin="0 auto">
+      {children}
+    </Box>
+  </ChakraProvider>
 )
 
 const Routes = () => {
