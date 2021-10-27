@@ -1,4 +1,4 @@
-import { Flex, Box, Icon, Text } from '@chakra-ui/react'
+import { Flex, Box, Icon, Text, useMediaQuery } from '@chakra-ui/react'
 import { Link, useLocation } from 'react-router-dom'
 import { memo } from 'react'
 import { BiHomeAlt } from 'react-icons/bi'
@@ -6,6 +6,7 @@ import { FiBook } from 'react-icons/fi'
 import { BsPerson } from 'react-icons/bs'
 
 const NavBar = () => {
+  const [isMobile] = useMediaQuery('(max-width: 480px)')
   const { pathname } = useLocation()
 
   return (
@@ -13,7 +14,7 @@ const NavBar = () => {
       position="fixed"
       bg="#fff"
       bottom="0"
-      width="100%"
+      width={isMobile ? '100%' : '480px'}
       justifyContent="space-around"
       paddingY="10px"
     >

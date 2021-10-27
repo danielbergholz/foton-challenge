@@ -6,6 +6,7 @@ import Background from '../../assets/book-bg.png'
 import { IItem } from '../../types'
 import useSWR from 'swr'
 import fetcher from '../../services/fetcher'
+import OptionsBar from '../../components/OptionsBar'
 
 interface IParams {
   id: string
@@ -41,6 +42,7 @@ const Book = () => {
             width="153px"
             height="229px"
             mt="15px"
+            objectFit="cover"
           />
         </Skeleton>
 
@@ -68,6 +70,7 @@ const Book = () => {
           />
         </Skeleton>
       </Box>
+      <OptionsBar />
     </Box>
   )
 }
