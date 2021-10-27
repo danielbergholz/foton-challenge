@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Box, Flex, Text } from '@chakra-ui/react'
 import Discover from '../../components/Discover'
 import Search from '../../components/Search'
+import Reading from '../../components/Reading'
 
 const Home = () => {
   return (
@@ -33,7 +34,26 @@ const Home = () => {
           </Text>
         </Flex>
       </Box>
+
       <Discover />
+
+      <Box marginX="20px" mb="15px" mt="30px">
+        <Flex justifyContent="space-between" alignItems="center">
+          <Text
+            lineHeight="21px"
+            fontSize="18px"
+            letterSpacing="0.5px"
+            color="gray.700"
+          >
+            Currently Reading
+          </Text>
+          <Text color="blue" fontSize="14px" lineHeight="16px">
+            <Link to="/search">All</Link>
+          </Text>
+        </Flex>
+      </Box>
+
+      <Reading />
     </>
   )
 }
