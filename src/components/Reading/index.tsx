@@ -32,6 +32,7 @@ const Reading: React.FC = () => {
         bgImage={Background}
         paddingLeft="20px"
         marginTop={isValidating ? '' : '-30px'}
+        bgRepeat="no-repeat"
       >
         <Flex height="190px" alignItems="center">
           <Image
