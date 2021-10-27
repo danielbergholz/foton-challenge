@@ -1,4 +1,6 @@
-import { Box, Text } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
+import { Box, Flex, Text } from '@chakra-ui/react'
+import Discover from '../../components/Discover'
 import Search from '../../components/Search'
 
 const Home = () => {
@@ -12,21 +14,26 @@ const Home = () => {
           <Text as="span" color="pink">
             Daniel Bergholz
           </Text>
-          <Box display="inline" ml="11px">
+          <Text as="span" ml="11px">
             &#128075;
-          </Box>
+          </Text>
         </Text>
 
-        <Text
-          lineHeight="21px"
-          fontSize="18px"
-          letterSpacing="0.5px"
-          color="gray.700"
-          mb="15px"
-        >
-          Discover new book
-        </Text>
+        <Flex mb="15px" justifyContent="space-between" alignItems="center">
+          <Text
+            lineHeight="21px"
+            fontSize="18px"
+            letterSpacing="0.5px"
+            color="gray.700"
+          >
+            Discover new book
+          </Text>
+          <Text color="blue" fontSize="14px" lineHeight="16px">
+            <Link to="/search">More</Link>
+          </Text>
+        </Flex>
       </Box>
+      <Discover />
     </>
   )
 }
