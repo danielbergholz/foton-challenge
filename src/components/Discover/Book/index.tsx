@@ -4,6 +4,7 @@ import { memo } from 'react'
 import Circle from '../../../assets/circle.png'
 import Stats from '../../../assets/stats.svg'
 import { IVolume } from '../../../types'
+import randomIntFromInterval from '../../../utils/randomInt'
 
 interface IProps {
   volumeInfo: IVolume
@@ -101,7 +102,3 @@ const bgColors = [
   '#38003d',
   '#003d3d',
 ]
-
-function randomIntFromInterval(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1) + min)
-}
