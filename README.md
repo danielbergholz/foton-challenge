@@ -1,46 +1,51 @@
-# Getting Started with Create React App
+# Foton's Frontend Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the codebase for the Frontend challenge of [Foton Tech](https://fotontech.io/).
 
-## Available Scripts
+## Technologies used
 
-In the project directory, you can run:
+- Language: Typescript
+- Main Framework: React.js
+- CSS: Chakra UI
+- API Consumption: SWR and Axios
 
-### `yarn start`
+## Visiting the site
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+A hosted version of this webapp can be visited on [Vercel](https://foton-challenge-daniel-berg.vercel.app/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Running the site locally
 
-### `yarn test`
+Follow this steps on the command line to run react.js:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Install Dependencies
 
-### `yarn build`
+```bash
+yarn
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Create .env file based on .env.example
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+echo "REACT_APP_API_URL=https://www.googleapis.com/books/v1" > .env
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Start the dev server
 
-### `yarn eject`
+```bash
+yarn start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## About the challenge
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The challenge was to create a web app that consumes the [Google Books API](https://developers.google.com/books/docs/v1/using). The design can be found on [Figma](https://www.figma.com/file/KFElqzD983WNyvMY1SaF0c/frontend-book-app).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Pages
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The app is divided on 3 pages:
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Home
+  - It's the main page. You can see a 'Discover new book' listing, the 'Currently reading' book, and book review videos
+- Search
+  - Search books with pagination based on their names. Click on the book to see it's details.
+- Details
+  - List the most important informations about the book, e.g., title, description and authors.
