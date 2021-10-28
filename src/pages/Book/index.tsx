@@ -1,6 +1,6 @@
 import { Box, Image, Text, Icon, Skeleton } from '@chakra-ui/react'
 import { FiArrowLeft } from 'react-icons/fi'
-import { useHistory, useParams } from 'react-router-dom'
+import { useHistory, useLocation, useParams } from 'react-router-dom'
 
 import Background from '../../assets/book-bg.png'
 import { IItem } from '../../types'
@@ -12,9 +12,14 @@ interface IParams {
   id: string
 }
 
+interface IState {
+  search: string
+}
+
 const Book = () => {
   const history = useHistory()
   const { id } = useParams<IParams>()
+  const { state } = useLocation<IState>()
 
   const { data } = useSWR(
     `/volumes/${id}`,
@@ -33,7 +38,11 @@ const Book = () => {
           height="22px"
           ml="10px"
           cursor="pointer"
-          onClick={() => history.goBack()}
+          onClick={() =>
+            state
+              ? history.push('/search', { search: state.search })
+              : history.goBack()
+          }
         />
 
         <Skeleton isLoaded={!!data} width="153px" margin="0 auto">

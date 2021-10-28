@@ -1,8 +1,7 @@
-import { Box, Flex, Link, Text } from '@chakra-ui/layout'
+import { Flex, Text } from '@chakra-ui/layout'
 import { Icon } from '@chakra-ui/react'
 import { BiHeadphone } from 'react-icons/bi'
-import { BsPerson } from 'react-icons/bs'
-import { FiShare, FiBookOpen } from 'react-icons/fi'
+import { FiBookOpen, FiShare } from 'react-icons/fi'
 
 const OptionsBar = () => {
   return (

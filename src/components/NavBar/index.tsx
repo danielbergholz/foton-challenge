@@ -1,11 +1,19 @@
-import { Flex, Box, Icon, Text, useMediaQuery } from '@chakra-ui/react'
+import {
+  Flex,
+  Box,
+  Icon,
+  Text,
+  useMediaQuery,
+  ComponentWithAs,
+  FlexProps,
+} from '@chakra-ui/react'
 import { Link, useLocation } from 'react-router-dom'
 import { memo } from 'react'
 import { BiHomeAlt } from 'react-icons/bi'
 import { FiBook } from 'react-icons/fi'
 import { BsPerson } from 'react-icons/bs'
 
-const NavBar = () => {
+const NavBar: ComponentWithAs<'div', FlexProps> = ({ ...rest }) => {
   const [isMobile] = useMediaQuery('(max-width: 480px)')
   const { pathname } = useLocation()
 
@@ -17,6 +25,7 @@ const NavBar = () => {
       width={isMobile ? '100%' : '480px'}
       justifyContent="space-around"
       paddingY="10px"
+      {...rest}
     >
       <Link to="/">
         <Box textAlign="center">
@@ -29,8 +38,13 @@ const NavBar = () => {
       </Link>
       <Link to="/search">
         <Box textAlign="center">
-          <Icon as={FiBook} color="gray.150" />
-          <Text color="gray.150">Libraries</Text>
+          <Icon
+            as={FiBook}
+            color={pathname === '/search' ? 'gray.700' : 'gray.150'}
+          />
+          <Text color={pathname === '/search' ? 'gray.700' : 'gray.150'}>
+            Libraries
+          </Text>
         </Box>
       </Link>
       <Link to="/">

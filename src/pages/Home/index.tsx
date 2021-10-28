@@ -12,7 +12,9 @@ const Home = () => {
   return (
     <>
       <Box marginX="20px">
-        <Search mt="50px" />
+        <Link to="/search">
+          <Search mt="50px" />
+        </Link>
 
         <Text fontWeight="500" fontSize="24px" lineHeight="28px" my="20px">
           Hi,{' '}
