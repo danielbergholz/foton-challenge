@@ -57,13 +57,13 @@ const Book = () => {
 
         <Skeleton isLoaded={!!data}>
           <Text mt="36px" fontSize="24px" lineHeight="28px" color="gray.700">
-            {data?.volumeInfo.title || 'Carregando título'}
+            {data?.volumeInfo.title || 'No title'}
           </Text>
         </Skeleton>
 
         <Skeleton isLoaded={!!data}>
           <Text mt="7px" fontSize="16px" lineHeight="18px" color="pink">
-            {data?.volumeInfo.authors?.join(', ') || 'Carregando autores'}
+            {data?.volumeInfo.authors?.join(', ') || 'No authors'}
           </Text>
         </Skeleton>
 
@@ -74,7 +74,7 @@ const Book = () => {
             lineHeight="25px"
             color="#31313199"
             dangerouslySetInnerHTML={{
-              __html: data?.volumeInfo?.description || 'Carregando descrição',
+              __html: data?.volumeInfo?.description || 'No description',
             }}
           />
         </Skeleton>
